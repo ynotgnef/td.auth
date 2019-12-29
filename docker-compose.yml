@@ -1,0 +1,18 @@
+version: '3.0'
+
+services:
+  auth:
+    build:
+      context: ./
+      dockerfile: ./dockerfile
+    image: auth
+    environment:
+      CLIENT_ID: ${CLIENT_ID}
+      REDIRECT_URI: ${REDIRECT_URI}
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./coverage:/app/coverage
+volumes:
+  coverage:
+
